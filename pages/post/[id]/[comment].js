@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import Head from "next/head";
 import Header from "../../../components/header";
 
 const Comment = () => {
@@ -12,8 +13,7 @@ const Comment = () => {
         <meta charSet="utf-8" />
         <meta name="description" content={description}></meta>
         + <meta property="og:title" content={pageTitle} key="ogtitle" />
-        + <meta property="og:description" content={description} key="ogdesc" />
-        +{" "}
+        + <meta property="og:description" content={description} key="ogdesc" />+{" "}
         <meta
           property="og:video"
           content={`https://geppetto-clips.formant.io/${id}.mp4`}
