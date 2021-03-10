@@ -3,9 +3,8 @@ import Link from "next/link";
 import Header from "../../../components/header";
 import Head from "next/head";
 
-const Post = () => {
+const Post = ({ id }) => {
   const router = useRouter();
-  const { id } = router.query;
   const description = "My pose with Spot";
   const pageTitle = "formant spot teleop";
 
@@ -41,5 +40,14 @@ const Post = () => {
     </>
   );
 };
+
+export async function getServerSideProps(context) {
+  console.log(context);
+  return {
+    props: {
+      id: context.query.id,
+    }, // will be passed to the page component as props
+  };
+}
 
 export default Post;
