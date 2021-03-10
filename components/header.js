@@ -1,30 +1,15 @@
-import Link from 'next/link'
+import Link from "next/link";
 
 const Header = () => (
   <header>
     <ul>
       <li>
-        <Link href="/">
-          <a>Home</a>
-        </Link>
-      </li>
-      <li>
-        <Link href="/about">
-          <a>About</a>
-        </Link>
-      </li>
-      <li>
-        <Link href="/post/[id]" as="/post/first">
-          <a>First Post</a>
-        </Link>
-      </li>
-      <li>
-        <Link href="/post/[id]" as="/post/second">
-          <a>Second Post</a>
+        <Link href="/post/[id]" as="/post/177ac07d-1d66-45e0-8ae6-06a88804275b">
+          <a>First</a>
         </Link>
       </li>
     </ul>
   </header>
-)
+);
 
-export default Header
+export default Header;

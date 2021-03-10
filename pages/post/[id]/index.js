@@ -3,10 +3,14 @@ import Link from "next/link";
 import Header from "../../../components/header";
 import Head from "next/head";
 
-const Post = ({ id }) => {
+const Post = () => {
   const router = useRouter();
+  const { query, pathname } = router;
+  const { id } = query;
   const description = "My pose with Spot";
   const pageTitle = "formant spot teleop";
+
+  // fb:app_id
 
   return (
     <>
@@ -19,11 +23,20 @@ const Post = ({ id }) => {
         <meta property="description" content={description}></meta>
         <meta property="og:title" content={pageTitle} key="ogtitle" />
         <meta property="og:type" content="video.movie" />
+        <meta property="og:url" content={pathname} />
         <meta property="og:site_name" content="Formant" />
         <meta property="og:description" content={description} key="ogdesc" />
         <meta
+          property="og:video:secure_url"
+          content={`https://geppetto-clips.formant.io/${id}.mp4`}
+        />
+        <meta
           property="og:video"
           content={`https://geppetto-clips.formant.io/${id}.mp4`}
+        />
+        <meta
+          property="og:image"
+          content={`https://geppetto-clips.formant.io/${id}.png`}
         />
         <title>{pageTitle}</title>
       </Head>
@@ -44,14 +57,5 @@ const Post = ({ id }) => {
     </>
   );
 };
-
-export async function getServerSideProps(context) {
-  console.log(context);
-  return {
-    props: {
-      id: context.query.id,
-    }, // will be passed to the page component as props
-  };
-}
 
 export default Post;
