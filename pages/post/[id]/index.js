@@ -1,16 +1,13 @@
-import { useRouter } from "next/router";
 import Link from "next/link";
 import Header from "../../../components/header";
 import Head from "next/head";
 
 const Post = ({ id }) => {
-  const router = useRouter();
-  // const { query, pathname } = router;
-  // const { id } = query;
   const description = "My pose with Spot";
   const pageTitle = "formant spot teleop";
-
-  // fb:app_id
+  const imgSrc = `https://geppetto-clips.formant.io/${id}.png`;
+  const videoSrc = `https://geppetto-clips.formant.io/${id}.mp4`;
+  const siteUrl = "http://formant.io/";
 
   return (
     <>
@@ -23,37 +20,26 @@ const Post = ({ id }) => {
         <meta property="description" content={description}></meta>
         <meta property="og:title" content={pageTitle} key="ogtitle" />
         <meta property="og:type" content="video.movie" />
-        {/* <meta property="og:url" content={pathname} /> */}
+        <meta property="og:url" content={siteUrl} />
         <meta property="og:site_name" content="Formant" />
         <meta property="og:description" content={description} key="ogdesc" />
-        <meta
-          property="og:video:secure_url"
-          content={`https://geppetto-clips.formant.io/${id}.mp4`}
-        />
-        <meta
-          property="og:video"
-          content={`https://geppetto-clips.formant.io/${id}.mp4`}
-        />
-        <meta
-          property="og:image"
-          content={`https://geppetto-clips.formant.io/${id}.png`}
-        />
+        <meta property="og:video:secure_url" content={videoSrc} />
+        <meta property="og:video" content={videoSrc} />
+        <meta property="og:image" content={imgSrc} />
+
+        {/* twiiter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:title" content={pageTitle} />
+        <meta property="twitter:description" content={description} />
+        <meta property="twitter:site" content="@FormantInc" />
+        <meta property="twitter:creator" content="@FormantInc" />
+        <meta property="twitter:url" content={siteUrl} />
+        <meta property="twitter:image:src" content={imgSrc} />
+
         <title>{pageTitle}</title>
       </Head>
       <Header />
       <h1>Post: {id}</h1>
-      <ul>
-        <li>
-          <Link href="/post/[id]/[comment]" as={`/post/${id}/first-comment`}>
-            <a>First comment</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/post/[id]/[comment]" as={`/post/${id}/second-comment`}>
-            <a>Second comment</a>
-          </Link>
-        </li>
-      </ul>
     </>
   );
 };
