@@ -3,10 +3,10 @@ import Link from "next/link";
 import Header from "../../../components/header";
 import Head from "next/head";
 
-const Post = () => {
+const Post = ({ id }) => {
   const router = useRouter();
-  const { query, pathname } = router;
-  const { id } = query;
+  // const { query, pathname } = router;
+  // const { id } = query;
   const description = "My pose with Spot";
   const pageTitle = "formant spot teleop";
 
@@ -23,7 +23,7 @@ const Post = () => {
         <meta property="description" content={description}></meta>
         <meta property="og:title" content={pageTitle} key="ogtitle" />
         <meta property="og:type" content="video.movie" />
-        <meta property="og:url" content={pathname} />
+        {/* <meta property="og:url" content={pathname} /> */}
         <meta property="og:site_name" content="Formant" />
         <meta property="og:description" content={description} key="ogdesc" />
         <meta
@@ -57,5 +57,13 @@ const Post = () => {
     </>
   );
 };
+
+export async function getServerSideProps(context) {
+  return {
+    props: {
+      id: context.params.id,
+    },
+  };
+}
 
 export default Post;
