@@ -14,12 +14,8 @@ const Comment = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
         <meta name="description" content={description}></meta>
-        + <meta property="og:title" content={pageTitle} key="ogtitle" />
-        + <meta
-          property="og:description"
-          content={description}
-          key="ogdesc"
-        />+{" "}
+        <meta property="og:title" content={pageTitle} key="ogtitle" />
+        <meta property="og:description" content={description} key="ogdesc" />
         <meta
           property="og:video"
           content={`https://geppetto-clips.formant.io/${id}.mp4`}
