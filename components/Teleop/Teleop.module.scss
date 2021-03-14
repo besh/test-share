@@ -1,0 +1,18 @@
+.record {
+  position: absolute;
+  top: 5rem;
+  width: 100%;
+  text-align: center;
+}
+
+.timeRemaining {
+  position: absolute;
+  top: 15px;
+  right: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.time {
+  margin: 0 1rem 0;
+}

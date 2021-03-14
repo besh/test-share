@@ -1,0 +1,139 @@
+@import "./color.scss";
+@import "./spacing.scss";
+@import "./type.scss";
+
+$prefixes: -webkit- -moz- -ms- -o-;
+
+$breakpoints: (
+    xs: 576px,
+    sm: 768px,
+    md: 992px,
+    lg: 1200px,
+    xl: 1600px
+);
+
+@mixin transition(
+    $properties: all,
+    $duration: 200ms,
+    $method: ease-in-out,
+    $delay: 0ms
+) {
+    @each $prefix in $prefixes {
+        $value: ();
+        @each $property in $properties {
+            @if length($value) > 0 {
+                $value: append(
+                    $value,
+                    unquote(",") #{$property} $duration $method $delay
+                );
+            } @else {
+                $value: append($value, #{$property} $duration $method $delay);
+            }
+        }
+        #{$prefix}transition: $value;
+    }
+}
+
+@mixin appearance($appearance) {
+    @each $prefix in $prefixes {
+        #{$prefix}appearance: $appearance;
+    }
+}
+
+@mixin shadow($color: var(--formant-color-background)) {
+    box-shadow: 0 0 2rem $color;
+}
+
+@mixin font() {
+    font-family: inherit;
+    font-variant-numeric: inherit;
+    letter-spacing: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+@mixin respond-above($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        $breakpoint-value: map-get($breakpoints, $breakpoint);
+        @media (min-width: $breakpoint-value) {
+            @content;
+        }
+    } @else {
+        @warn 'Invalid breakpoint: #{$breakpoint}';
+    }
+}
+
+@mixin respond-below($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        $breakpoint-value: map-get($breakpoints, $breakpoint);
+        @media (max-width: $breakpoint-value) {
+            @content;
+        }
+    } @else {
+        @warn 'Invalid breakpoint: #{$breakpoint}';
+    }
+}
+
+@mixin respond-between($lower, $upper) {
+    @if map-has-key($breakpoints, $lower) and map-has-key($breakpoints, $upper)
+    {
+        $lower-breakpoint: map-get($breakpoints, $lower);
+        $upper-breakpoint: map-get($breakpoints, $upper);
+        @media (min-width: $lower-breakpoint) and (max-width: ($upper-breakpoint - 1)) {
+            @content;
+        }
+    } @else {
+        @warn 'Missing breakpoint parameter';
+    }
+}
+
+@mixin hide-below($breakpoint) {
+    @include respond-below($breakpoint) {
+        display: none;
+    }
+}
+
+@mixin disable-selection() {
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    user-select: none;
+}
+
+@mixin grid($min: 32rem, $gap: $space-20) {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax($min, 1fr));
+    grid-template-rows: min-content;
+    grid-gap: $gap;
+}
+
+@mixin border-radius($radius: 0.6rem) {
+    border-radius: $radius;
+}
+
+@mixin absolute($top: 0, $right: 0, $bottom: 0, $left: 0) {
+    position: absolute;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+
+%flex-horizontal {
+    display: flex;
+    flex-direction: row;
+}
+
+%flex-vertical {
+    display: flex;
+    flex-direction: column;
+}
+
+%absolute-hidden {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    visibility: hidden;
+}

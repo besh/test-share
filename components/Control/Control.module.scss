@@ -1,0 +1,27 @@
+.root {
+  position: relative;
+  overflow: hidden;
+  height: 900px;
+}
+
+.inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  box-sizing: border-box;
+  padding: 60px;
+}
+
+.image {
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+
+.text {
+  position: relative;
+  z-index: 2;
+  width: 400px;
+}

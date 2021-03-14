@@ -1,0 +1,83 @@
+@import "../../styles/common.scss";
+
+.projectLogo {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  margin: 5rem 0 10%;
+}
+
+.heroBanner {
+  position: relative;
+  overflow: hidden;
+  background: #231124;
+  margin: 0 auto;
+  max-width: 1440px;
+  height: 920px;
+
+  @include respond-below(md) {
+    height: initial;
+  }
+}
+
+.heroImage {
+  width: 180%;
+  transform: translate(-36%, 0);
+  margin-top: -13.5rem;
+
+  @include respond-above(md) {
+    transform: initial;
+    max-width: 1440px;
+    width: 100%;
+    min-width: 1100px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+  }
+}
+
+.heroCard {
+  position: relative;
+  z-index: 2;
+  max-width: 350px;
+  padding: 0 60px 150px;
+
+  @include respond-below(md) {
+    background: $flagship;
+    max-width: initial;
+    border-radius: 0;
+    padding: 100px 30px 60px;
+  }
+}
+
+.grid {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1440px;
+  padding: 0 30px;
+  margin: 0 auto;
+
+  @include respond-below(md) {
+    display: block;
+  }
+
+  @include respond-below(sm) {
+    display: block;
+    padding: 0;
+  }
+}
+
+.queueButton {
+  margin-top: 3rem;
+}
+
+.cardImage {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  height: 320px;
+}

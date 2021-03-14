@@ -1,0 +1,59 @@
+@import "./color.scss";
+@import "./type.scss";
+@import "./common.scss";
+
+@font-face {
+  font-family: "Moderat";
+  font-weight: 100;
+  font-style: normal;
+  src: url(/fonts/Moderat-Thin.woff);
+}
+
+@font-face {
+  font-family: "Moderat";
+  font-weight: 200;
+  font-style: normal;
+  src: url(/fonts/Moderat-Light.woff);
+}
+
+@font-face {
+  font-family: "Moderat";
+  font-weight: 300;
+  font-style: normal;
+  src: url(/fonts/Moderat-Regular.woff);
+}
+
+@font-face {
+  font-family: "Moderat";
+  font-weight: 400;
+  font-style: normal;
+  src: url(/fonts/Moderat-Medium.woff);
+}
+
+@font-face {
+  font-family: "Moderat";
+  font-weight: 500;
+  font-style: normal;
+  src: url(/fonts/Moderat-Bold.woff);
+}
+
+@font-face {
+  font-family: "Moderat";
+  font-weight: 600;
+  font-style: normal;
+  src: url(/fonts/Moderat-Black.woff);
+}
+
+body {
+  margin: 0;
+  font-family: "Moderat", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: $flagship;
+  color: white;
+
+  @include respond-below(sm) {
+    position: absolute;
+  }
+}

@@ -1,0 +1,23 @@
+@import "../../styles/color.scss";
+@import "../../styles/common.scss";
+
+.root {
+  padding: 30px;
+  border-radius: 6px;
+  max-width: 400px;
+
+  @include respond-below(md) {
+    max-width: initial;
+    padding: 30px;
+  }
+
+  @include respond-above(lg) {
+    max-width: 504px;
+    padding: 30px;
+  }
+
+  @include respond-above(xl) {
+    max-width: 560px;
+    padding: 60px;
+  }
+}

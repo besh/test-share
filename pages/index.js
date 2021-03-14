@@ -1,10 +1,7 @@
-import Header from '../components/header'
+import Landing from "../components/Landing/Landing";
 
-const Home = () => (
-  <>
-    <Header />
-    <h1>Hello World!</h1>
-  </>
-)
+const Home = () => {
+  return <Landing />;
+};
 
-export default Home
+export default Home;

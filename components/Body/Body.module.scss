@@ -1,0 +1,14 @@
+@import "../../styles/type.scss";
+@import "../../styles/color.scss";
+
+.root {
+  color: $silver;
+}
+
+.bodyL {
+  @extend %bodyL;
+}
+
+.bodyM {
+  @extend %bodyM;
+}

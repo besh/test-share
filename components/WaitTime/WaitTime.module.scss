@@ -1,0 +1,71 @@
+@import "../../styles/color.scss";
+@import "../../styles/type.scss";
+
+.root {
+  position: relative;
+  background: url("./soft-bg.png") no-repeat;
+  background-position: center;
+  height: 320px;
+  width: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.geo {
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  bottom: 18px;
+  background: url("./geo.png") no-repeat;
+  background-position: center;
+  width: 119px;
+  height: 124px;
+}
+
+.cone {
+  position: absolute;
+  z-index: 1;
+  top: -32px;
+  right: 0;
+  background: url("./cone.png") no-repeat;
+  background-position: center;
+  width: 166px;
+  height: 171px;
+}
+
+.ring {
+  position: absolute;
+  animation: glow 3s infinite linear;
+  z-index: 2;
+}
+
+.time {
+  @extend %display;
+  margin: 4rem 0 0;
+}
+
+.message {
+  @extend %h4;
+  font-size: 1rem;
+  color: $silver;
+  text-align: center;
+}
+
+@keyframes glow {
+  0% {
+    filter: brightness(1) saturate(1);
+    transform: rotateZ(0deg);
+  }
+
+  50% {
+    filter: brightness(2) saturate(3.5);
+  }
+
+  100% {
+    filter: brightness(1) saturate(1);
+    transform: rotateZ(360deg);
+  }
+}

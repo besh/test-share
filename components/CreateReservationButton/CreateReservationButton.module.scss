@@ -1,0 +1,8 @@
+@import "../../styles/common.scss";
+
+.root {
+  @include respond-below(md) {
+    display: flex;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,25 @@
+@import "../../styles/type.scss";
+
+.root {
+  color: white;
+}
+
+.display {
+  @extend %display;
+}
+
+.h1 {
+  @extend %h1;
+}
+
+.h2 {
+  @extend %h2;
+}
+
+.h3 {
+  @extend %h3;
+}
+
+.h4 {
+  @extend %h4;
+}

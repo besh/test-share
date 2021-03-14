@@ -1,0 +1,15 @@
+.root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.loader {
+  background: url("./loading.png") no-repeat;
+  background-size: 24px 24px;
+  background-position: center;
+  height: 24px;
+  width: 24px;
+}
